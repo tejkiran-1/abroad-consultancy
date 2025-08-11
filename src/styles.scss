@@ -1,1 +1,202 @@
 /* You can add global styles to this file, and also import other style files */
+// Import variables and mixins (migrated from @import to @use)
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/animations';
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-primary;
+  background-color: $background-primary;
+  overflow-x: hidden;
+}
+
+// Layout wrappers
+.app-main { min-height: calc(100vh - 300px); padding-top: 70px; }
+
+.site-footer { background:$gray-900; color:$text-inverse; margin-top:$spacing-3xl; font-size:$font-size-sm; }
+.site-footer a { color:$gray-300; text-decoration:none; transition:$transition-colors; }
+.site-footer a:hover { color:$white; }
+.site-footer .container { max-width:$container-max-width; margin:0 auto; padding:$spacing-3xl $spacing-lg; }
+.site-footer .cols { display:grid; gap:$spacing-2xl; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-bottom:$spacing-2xl; }
+.site-footer h4 { font-size:$font-size-lg; margin-bottom:$spacing-sm; color:$white; }
+.site-footer p, .site-footer li { color:$gray-400; }
+.site-footer ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: .4rem; }
+.site-footer .social { display:flex; gap:$spacing-sm; margin-top:$spacing-sm; }
+.site-footer .social a { width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center; background:$gray-800; border-radius:$border-radius-base; font-weight:$font-weight-medium; }
+.site-footer .social a:hover { background:$primary-color; }
+.site-footer .bottom { border-top:1px solid rgba($white,.08); padding-top:$spacing-md; display:flex; flex-wrap:wrap; align-items:center; gap:$spacing-md; justify-content:space-between; }
+
+@media (max-width:$breakpoint-tablet){
+  .site-footer .container { padding:$spacing-2xl $spacing-md; }
+  .site-footer .cols { gap:$spacing-xl; }
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-heading;
+  margin-bottom: $spacing-md;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+h5 { font-size: $font-size-h5; }
+h6 { font-size: $font-size-h6; }
+
+p {
+  margin-bottom: $spacing-sm;
+  color: $text-secondary;
+}
+
+// Buttons
+.btn {
+  @include button-base;
+  
+  &.btn-primary {
+    @include button-variant($primary-color, $white, $primary-dark);
+  }
+  
+  &.btn-outline {
+    @include button-outline($primary-color);
+  }
+  
+  &.btn-secondary {
+    @include button-variant($secondary-color, $white, $secondary-dark);
+  }
+}
+
+// Container
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0 $spacing-sm;
+  }
+}
+
+// Section spacing
+.section {
+  padding: $section-padding 0;
+  
+  @media (max-width: $breakpoint-tablet) {
+    padding: $section-padding-mobile 0;
+  }
+}
+
+// Cards
+.card {
+  background: $white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  transition: $transition-all;
+  
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-4px);
+  }
+}
+
+// Responsive utilities
+@media (max-width: $breakpoint-mobile) {
+  .mobile-hide { display: none !important; }
+  .mobile-center { text-align: center !important; }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .desktop-hide { display: none !important; }
+}
+
+// Loading states
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid $gray-light;
+  border-radius: 50%;
+  border-top-color: $primary-color;
+  animation: spin 1s linear infinite;
+}
+
+// Form elements
+.form-group {
+  margin-bottom: $spacing-md;
+}
+
+.form-control {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 2px solid $gray-light;
+  border-radius: $border-radius-base;
+  font-size: $font-size-base;
+  transition: $transition-all;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+  
+  &.error {
+    border-color: $error-color;
+  }
+}
+
+.form-error {
+  color: $error-color;
+  font-size: $font-size-sm;
+  margin-top: $spacing-xs;
+}
+
+// Animations
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+.bounce-animation {
+  animation: bounce 2s infinite;
+}
+
+.floating-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+// Section theming
+.section { padding:$section-padding 0; position:relative; }
+.section.alt { background:linear-gradient(135deg, rgba($primary-color,.04), rgba($secondary-color,.05)); }
+.section-title { font-size:clamp(1.75rem,3vw,2.5rem); font-weight:$font-weight-bold; margin-bottom:$spacing-sm; background:linear-gradient(90deg,$primary-color,$accent-color,$secondary-color); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.section-intro { max-width:720px; color:$text-secondary; margin:0 0 $spacing-xl; font-size:$font-size-lg; }
+
+// Subtle abstract decorative blobs
+.section::before, .section::after { content:''; position:absolute; pointer-events:none; width:320px; height:320px; border-radius:50%; filter:blur(90px); opacity:.35; z-index:-1; }
+.section::before { top:-120px; left:-120px; background:radial-gradient(circle at 30% 30%, rgba($primary-color,.55), transparent 70%); }
+.section::after { bottom:-140px; right:-120px; background:radial-gradient(circle at 70% 70%, rgba($accent-color,.5), transparent 65%); }
+.section.alt::before { background:radial-gradient(circle at 30% 30%, rgba($secondary-color,.5), transparent 70%); }
+.section.alt::after { background:radial-gradient(circle at 70% 70%, rgba($primary-color,.45), transparent 65%); }
+
+@media (max-width:$breakpoint-tablet){
+  .section { padding:$section-padding-mobile 0; }
+  .section::before, .section::after { width:220px; height:220px; filter:blur(70px); }
+}

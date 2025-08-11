@@ -1,0 +1,7 @@
+.carousel { display:flex; align-items:center; gap:1rem; }
+.slide { display:none; max-width:480px; background:#fff; padding:1rem 1.25rem 1.25rem; border-radius:.85rem; box-shadow:0 4px 12px rgba(0,0,0,.07); position:relative; }
+.slide.active { display:block; animation: fadeIn .6s ease; }
+.avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; position:absolute; top:-32px; left:1rem; box-shadow:0 4px 10px rgba(0,0,0,.2); border:3px solid #fff; }
+blockquote { margin-top:2.5rem; font-size:1.05rem; line-height:1.45; font-style:italic; }
+.meta { margin-top:.75rem; font-size:.85rem; font-weight:600; color:#555; }
+button { background:#6366f1; color:#fff; border:none; padding:.5rem .75rem; border-radius:.5rem; cursor:pointer; }

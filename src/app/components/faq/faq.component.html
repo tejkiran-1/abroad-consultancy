@@ -1,0 +1,6 @@
+<div class="faq">
+  <div class="item" *ngFor="let f of faqs">
+    <button class="question" (click)="toggle(f)">{{f.q}}</button>
+    <div class="answer" *ngIf="f.open">{{f.a}}</div>
+  </div>
+</div>

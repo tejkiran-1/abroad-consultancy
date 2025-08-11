@@ -1,0 +1,52 @@
+<div class="contact-form-wrapper fade-in">
+	<h3>Request Free Consultation</h3>
+	<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+		<div class="row-2">
+			<div>
+				<label for="name">Full Name</label>
+				<input id="name" type="text" formControlName="name" [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" placeholder="Jane Doe" />
+				<div class="form-error" *ngIf="getFieldError('name')">{{ getFieldError('name') }}</div>
+			</div>
+			<div>
+				<label for="email">Email</label>
+				<input id="email" type="email" formControlName="email" [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" placeholder="you@example.com" />
+				<div class="form-error" *ngIf="getFieldError('email')">{{ getFieldError('email') }}</div>
+			</div>
+		</div>
+		<div class="row-2">
+			<div>
+				<label for="phone">Phone / WhatsApp</label>
+				<input id="phone" type="tel" formControlName="phone" [class.error]="contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched" placeholder="+1 555 222 3344" />
+				<div class="form-error" *ngIf="getFieldError('phone')">{{ getFieldError('phone') }}</div>
+			</div>
+			<div>
+				<label for="destination">Preferred Destination</label>
+				<select id="destination" formControlName="destination" [class.error]="contactForm.get('destination')?.invalid && contactForm.get('destination')?.touched">
+					<option value="" disabled selected>Select country</option>
+					<option *ngFor="let d of destinations" [value]="d">{{ d }}</option>
+				</select>
+				<div class="form-error" *ngIf="getFieldError('destination')">Destination is required</div>
+			</div>
+		</div>
+		<div class="row-2">
+			<div>
+				<label for="program">Program Interest</label>
+				<select id="program" formControlName="program" [class.error]="contactForm.get('program')?.invalid && contactForm.get('program')?.touched">
+					<option value="" disabled selected>Select program</option>
+					<option *ngFor="let p of programs" [value]="p">{{ p }}</option>
+				</select>
+				<div class="form-error" *ngIf="getFieldError('program')">Program is required</div>
+			</div>
+			<div>
+				<label for="message">Message</label>
+				<textarea id="message" rows="4" formControlName="message" [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" placeholder="Tell us about your goals..."></textarea>
+				<div class="form-error" *ngIf="getFieldError('message')">{{ getFieldError('message') }}</div>
+			</div>
+		</div>
+		<div style="margin-top: .5rem; display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+			<button type="submit" [disabled]="isSubmitting || contactForm.invalid">{{ isSubmitting ? 'Submitting...' : 'Submit Request' }}</button>
+			<span class="status success" *ngIf="submitSuccess">Thanks! We'll contact you shortly.</span>
+			<span class="status error" *ngIf="submitError">Submission failed. Try again.</span>
+		</div>
+	</form>
+</div>

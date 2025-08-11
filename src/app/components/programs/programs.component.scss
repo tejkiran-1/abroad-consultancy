@@ -1,0 +1,3 @@
+.programs { display:grid; gap:.75rem; list-style:none; padding:0; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+.programs li { background:#fff; padding:.85rem 1rem; border-radius:.65rem; box-shadow:0 2px 4px rgba(0,0,0,.06); display:flex; align-items:center; gap:.75rem; }
+.program-icon { width:36px; height:36px; padding:6px; background:linear-gradient(135deg,#eef4ff,#dce8ff); border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,.08); }

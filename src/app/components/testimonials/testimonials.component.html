@@ -1,0 +1,9 @@
+<div class="carousel">
+  <button (click)="prev()" aria-label="Previous">‹</button>
+  <div class="slide" *ngFor="let t of testimonials; let i = index" [class.active]="i===active">
+    <img class="avatar" [src]="'https://i.pravatar.cc/96?img=' + (i+12)" alt="{{t.name}} photo" loading="lazy" />
+    <blockquote>“{{t.quote}}”</blockquote>
+    <p class="meta">— {{t.name}}, {{t.destination}}</p>
+  </div>
+  <button (click)="next()" aria-label="Next">›</button>
+</div>

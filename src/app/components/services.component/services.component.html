@@ -1,0 +1,19 @@
+<section class="services-section">
+	<div class="services-intro">
+		<h2 class="section-heading gradient-text">Our Core Services</h2>
+		<p class="section-sub">Everything you need for a successful international education journey — delivered with clarity, expertise, and care.</p>
+	</div>
+	<div class="decor-bg" aria-hidden="true"></div>
+	<div class="services-grid">
+		<div class="service-card" *ngFor="let s of services" [id]="s.id">
+			<div class="icon-wrap">
+				<span class="icon" [innerHTML]="s.svg"></span>
+			</div>
+			<h3 class="service-title">{{ s.title }}</h3>
+			<p class="service-desc">{{ s.description }}</p>
+			<ul class="service-features">
+				<li *ngFor="let f of s.features">{{ f }}</li>
+			</ul>
+		</div>
+	</div>
+</section>

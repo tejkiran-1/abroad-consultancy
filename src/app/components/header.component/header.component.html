@@ -1,0 +1,68 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    <a routerLink="/" class="nav-brand" aria-label="GlobalStudy home">
+      <img src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/brand-google.svg" alt="Logo" class="logo" />
+      <span class="brand-text">GlobalStudy</span>
+    </a>
+    <ul class="nav-menu" role="menubar">
+      <li class="nav-item"><a routerLink="/" routerLinkActive="active" class="nav-link">Home</a></li>
+      <li class="nav-item dropdown" role="none">
+        <button class="nav-link dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">About <i class="chevron"></i></button>
+        <ul class="dropdown-menu" role="menu">
+          <li role="none"><a role="menuitem" routerLink="/about" class="dropdown-link">Introduction</a></li>
+          <li role="none"><a role="menuitem" routerLink="/about/team" class="dropdown-link">Our Team</a></li>
+          <li role="none"><a role="menuitem" routerLink="/about/partners" class="dropdown-link">Partners</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" role="none">
+        <button class="nav-link dropdown-toggle" type="button">Study Abroad <i class="chevron"></i></button>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/study-abroad/italy" class="dropdown-link">Italy</a></li>
+          <li><a routerLink="/study-abroad/uk" class="dropdown-link">UK</a></li>
+          <li><a routerLink="/study-abroad/france" class="dropdown-link">France</a></li>
+          <li><a routerLink="/study-abroad/denmark" class="dropdown-link">Denmark</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" role="none">
+        <button class="nav-link dropdown-toggle" type="button">Services <i class="chevron"></i></button>
+        <ul class="dropdown-menu two-col">
+          <li><a href="#services" class="dropdown-link">Career Counseling</a></li>
+          <li><a href="#services" class="dropdown-link">University Selection</a></li>
+          <li><a href="#services" class="dropdown-link">Test Preparation</a></li>
+          <li><a href="#services" class="dropdown-link">Visa Assistance</a></li>
+          <li><a href="#services" class="dropdown-link">Financial Advice</a></li>
+          <li><a href="#services" class="dropdown-link">Pre-Departure</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown" role="none">
+        <button class="nav-link dropdown-toggle" type="button">Institutions <i class="chevron"></i></button>
+        <ul class="dropdown-menu">
+          <li><a href="#universities" class="dropdown-link">UK</a></li>
+          <li><a href="#universities" class="dropdown-link">Italy</a></li>
+          <li><a href="#universities" class="dropdown-link">France</a></li>
+          <li><a href="#universities" class="dropdown-link">Denmark</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-cta desktop-only">
+      <a href="#consultation-form" class="btn btn-primary small">Free Consultation</a>
+    </div>
+    <button class="mobile-menu-btn" type="button" (click)="toggleMobileMenu()" aria-label="Toggle menu" [attr.aria-expanded]="isMobileMenuOpen" aria-controls="mobileNav">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileNav" [class.active]="isMobileMenuOpen" role="navigation" aria-label="Mobile primary">
+    <div class="mobile-inner">
+      <a routerLink="/" (click)="closeMobileMenu()">Home</a>
+      <a routerLink="/about" (click)="closeMobileMenu()">About</a>
+      <a routerLink="/study-abroad" (click)="closeMobileMenu()">Study Abroad</a>
+      <a href="#services" (click)="closeMobileMenu()">Services</a>
+      <a href="#universities" (click)="closeMobileMenu()">Institutions</a>
+      <a routerLink="/contact" (click)="closeMobileMenu()">Contact</a>
+      <a href="#consultation-form" class="btn btn-primary" (click)="closeMobileMenu()">Get Started</a>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,11 @@
+<div class="uni-groups">
+  <div class="group" *ngFor="let entry of universities | keyvalue">
+    <h3 class="country">{{entry.key | titlecase}}</h3>
+    <ul>
+      <li *ngFor="let uni of entry.value">
+        <img class="uni-logo" [src]="'https://picsum.photos/seed/' + sanitize(uni) + '/60/60'" alt="{{uni}} logo" loading="lazy" />
+        <span>{{uni}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

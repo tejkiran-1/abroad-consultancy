@@ -1,0 +1,9 @@
+<div class="country-grid">
+  <div class="country" *ngFor="let c of countries" [id]="c.code">
+    <figure class="flag-wrap">
+      <img class="flag" [src]="c.image" [alt]="c.name + ' highlight'" loading="lazy" />
+    </figure>
+    <h3>{{c.name}}</h3>
+    <p>{{c.blurb}}</p>
+  </div>
+</div>

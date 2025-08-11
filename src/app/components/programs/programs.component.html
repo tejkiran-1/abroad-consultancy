@@ -1,0 +1,6 @@
+<ul class="programs">
+  <li *ngFor="let p of programs; let i = index">
+    <img class="program-icon" [src]="'https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/' + iconMap[i % iconMap.length] + '.svg'" alt="" loading="lazy" />
+    <span>{{p}}</span>
+  </li>
+</ul>
