@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "setup": "npm install && echo '✅ Setup completed! Run npm start to begin.'",
+    "dev": "ng serve --open",
+    "start": "ng serve --open --port 4200",
+    "build:prod": "ng build --configuration production",
+    "preview": "ng build && npx http-server dist/abroad-consultancy -p 8080 -o",
+    "lint": "ng lint",
+    "test": "ng test --watch=false",
+    "test:watch": "ng test",
+    "e2e": "ng e2e",
+    "analyze": "ng build --stats-json && npx webpack-bundle-analyzer dist/abroad-consultancy/stats.json"
+  },
+  "keywords": [
+    "angular",
+    "study-abroad",
+    "consultancy", 
+    "education",
+    "responsive",
+    "modern-design"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/abroad-consultancy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/abroad-consultancy/issues"
+  },
+  "homepage": "https://your-username.github.io/abroad-consultancy"
+}

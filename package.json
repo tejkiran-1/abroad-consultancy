@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "setup": "npm install && echo '✅ Setup completed! Run npm start to begin.'",
+    "start": "ng serve --open --port 4200",
+    "dev": "ng serve --open",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "preview": "ng build && npx http-server dist/abroad-consultancy -p 8080 -o",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "analyze": "ng build --stats-json && npx webpack-bundle-analyzer dist/abroad-consultancy/stats.json"
   },
   "prettier": {
     "overrides": [

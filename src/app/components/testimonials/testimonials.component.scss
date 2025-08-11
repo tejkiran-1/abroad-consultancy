@@ -1,7 +1,267 @@
-.carousel { display:flex; align-items:center; gap:1rem; }
-.slide { display:none; max-width:480px; background:#fff; padding:1rem 1.25rem 1.25rem; border-radius:.85rem; box-shadow:0 4px 12px rgba(0,0,0,.07); position:relative; }
-.slide.active { display:block; animation: fadeIn .6s ease; }
-.avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; position:absolute; top:-32px; left:1rem; box-shadow:0 4px 10px rgba(0,0,0,.2); border:3px solid #fff; }
-blockquote { margin-top:2.5rem; font-size:1.05rem; line-height:1.45; font-style:italic; }
-.meta { margin-top:.75rem; font-size:.85rem; font-weight:600; color:#555; }
-button { background:#6366f1; color:#fff; border:none; padding:.5rem .75rem; border-radius:.5rem; cursor:pointer; }
+@use '../../../styles/variables' as *;
+
+/* Seamless Testimonials with Enhanced Glass Morphism */
+.carousel { 
+  display: flex; 
+  align-items: center; 
+  gap: 2rem; 
+  justify-content: center;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.slide { 
+  display: none; 
+  max-width: 580px; 
+  background: $glass-dark;
+  border: 1px solid $glass-border;
+  backdrop-filter: blur(20px) saturate(180%);
+  padding: 2rem 2.5rem 2.25rem; 
+  border-radius: 1.75rem; 
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3),
+              0 6px 24px rgba(99, 102, 241, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(99, 102, 241, 0.1),
+    rgba(139, 92, 246, 0.08),
+    rgba(59, 130, 246, 0.06),
+    rgba(16, 185, 129, 0.04)
+  );
+  opacity: 0.8;
+  border-radius: inherit;
+  transition: all .4s ease;
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(99, 102, 241, 0.6) 20%,
+    rgba(139, 92, 246, 0.8) 50%,
+    rgba(59, 130, 246, 0.6) 80%,
+    transparent
+  );
+  border-radius: 1px;
+}
+
+.slide.active { 
+  display: block; 
+  animation: slideIn .8s cubic-bezier(.16, .8, .28, .99); 
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.92); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.avatar { 
+  width: 88px; 
+  height: 88px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  position: absolute; 
+  top: -44px; 
+  left: 2rem; 
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4),
+              0 6px 16px rgba(99, 102, 241, 0.3),
+              inset 0 2px 0 rgba(255, 255, 255, 0.1); 
+  border: 4px solid rgba(15, 15, 35, 0.95);
+  filter: brightness(1.15) contrast(1.08) saturate(1.1);
+  z-index: 3;
+  position: relative;
+  transition: all .4s ease;
+}
+
+.avatar::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 45deg,
+    rgba(99, 102, 241, 0.4),
+    rgba(139, 92, 246, 0.3),
+    rgba(59, 130, 246, 0.2),
+    rgba(16, 185, 129, 0.15),
+    rgba(99, 102, 241, 0.4)
+  );
+  z-index: -1;
+  opacity: 0.7;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slide.active .avatar {
+  transform: scale(1.05);
+}
+
+blockquote { 
+  margin-top: 3.5rem; 
+  font-size: 1.2rem; 
+  line-height: 1.6; 
+  font-style: italic;
+  color: $text-primary;
+  position: relative;
+  z-index: 1;
+  font-weight: 400;
+  letter-spacing: .3px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: rgba(99, 102, 241, 0.4);
+  position: absolute;
+  top: -1.5rem;
+  left: -1rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.meta { 
+  margin-top: 1.5rem; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: $text-secondary;
+  position: relative;
+  z-index: 1;
+  letter-spacing: .4px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  padding-left: 1rem;
+}
+
+.meta::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: linear-gradient(180deg, 
+    rgba(99, 102, 241, 0.6),
+    rgba(139, 92, 246, 0.8),
+    rgba(59, 130, 246, 0.6)
+  );
+  border-radius: 1.5px;
+}
+
+.meta strong {
+  color: $primary-light;
+  font-weight: 700;
+}
+
+/* Enhanced Navigation Buttons */
+button { 
+  background: linear-gradient(135deg, $primary-color, $accent-color);
+  color: $white; 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(180%);
+  padding: 1rem 1.5rem; 
+  border-radius: 1rem; 
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .9rem;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4),
+              0 4px 12px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all .4s cubic-bezier(.16, .8, .28, .99);
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.08)
+  );
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent
+  );
+  opacity: 0;
+  transition: opacity .3s ease;
+  border-radius: 1rem 1rem 0 0;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.5),
+              0 8px 20px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, 
+    lighten($primary-color, 10%), 
+    lighten($accent-color, 10%)
+  );
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button:hover::after {
+  opacity: 1;
+}
+
+button:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4),
+              0 4px 12px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:disabled:hover {
+  transform: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4),
+              0 4px 12px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}

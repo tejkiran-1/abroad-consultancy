@@ -3,7 +3,7 @@
     <h3 class="country">{{entry.key | titlecase}}</h3>
     <ul>
       <li *ngFor="let uni of entry.value">
-        <img class="uni-logo" [src]="'https://picsum.photos/seed/' + sanitize(uni) + '/60/60'" alt="{{uni}} logo" loading="lazy" />
+        <img class="uni-logo" src="https://ui-avatars.com/api/?name={{uni | slice:0:2}}&background=6366f1&color=fff&size=60&rounded=true&format=svg" [alt]="uni + ' logo'" loading="lazy" />
         <span>{{uni}}</span>
       </li>
     </ul>

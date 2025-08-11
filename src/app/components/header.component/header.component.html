@@ -1,7 +1,13 @@
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="nav-container">
     <a routerLink="/" class="nav-brand" aria-label="GlobalStudy home">
-      <img src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/brand-google.svg" alt="Logo" class="logo" />
+      <div class="logo-container">
+        <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.3"/>
+        </svg>
+      </div>
       <span class="brand-text">GlobalStudy</span>
     </a>
     <ul class="nav-menu" role="menubar">

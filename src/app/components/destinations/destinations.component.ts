@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 })
 export class DestinationsComponent {
   countries = [
-    { code: 'italy', name: 'Italy', blurb: 'Historic universities & rich culture.', image: 'https://picsum.photos/seed/italy/320/200' },
-    { code: 'uk', name: 'United Kingdom', blurb: 'World-leading education hubs.', image: 'https://picsum.photos/seed/uk/320/200' },
-    { code: 'france', name: 'France', blurb: 'Innovation & art excellence.', image: 'https://picsum.photos/seed/france/320/200' },
-    { code: 'denmark', name: 'Denmark', blurb: 'Sustainability & design thinking.', image: 'https://picsum.photos/seed/denmark/320/200' }
+    { code: 'italy', name: 'Italy', blurb: 'Historic universities & rich culture.', image: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?w=320&h=200&fit=crop&crop=center&auto=format&q=80' },
+    { code: 'uk', name: 'United Kingdom', blurb: 'World-leading education hubs.', image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=320&h=200&fit=crop&crop=center&auto=format&q=80' },
+    { code: 'france', name: 'France', blurb: 'Innovation & art excellence.', image: 'https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=320&h=200&fit=crop&crop=center&auto=format&q=80' },
+    { code: 'denmark', name: 'Denmark', blurb: 'Sustainability & design thinking.', image: 'https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=320&h=200&fit=crop&crop=center&auto=format&q=80' }
   ];
 }

@@ -1,16 +1,37 @@
-# AbroadConsultancy
+# Study Abroad Consultancy - Angular Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+A beautiful, modern Angular application for study abroad consultancy services with gradient designs, animations, and external assets.
 
-## Development server
+## 🚀 Quick Start
 
-To start a local development server, run:
+### Prerequisites
+- Node.js (v18 or higher)
+- npm (v8 or higher)
+
+### Installation & Setup
 
 ```bash
-ng serve
+# Clone the repository
+git clone <repository-url>
+cd abroad-consultancy
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## 🎨 Features
+
+- **Modern Design**: Beautiful gradient themes with abstract backgrounds
+- **Responsive Layout**: Mobile-first design with responsive components  
+- **External Assets**: High-quality images and icons from external CDNs
+- **Animations**: Smooth transitions and floating animations
+- **Form Handling**: Reactive forms with validation
+- **Component Architecture**: Modular Angular components
 
 ## Code scaffolding
 
